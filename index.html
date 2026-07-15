@@ -7,19 +7,22 @@
 <body>
     <p>Please wait while we redirect you to the movie...</p>
 
-   <script>
-    // 1. Pinterest එකෙන් එන URL එකේ තියෙන movie parameter එක ගන්නවා
+<script>
+    // 1. URL එකේ තියෙන parameters ටික ගන්නවා
     const urlParams = new URLSearchParams(window.location.search);
     const movieSlug = urlParams.get('movie');
-    
-    // 2. ඔයාගේ සයිට් එකේ main domain එක
-    const baseSite = "https://veloxstream.cfd/movie";
+    const seriesSlug = urlParams.get('series');
 
+    // 2. Movie එකක් ආවොත්
     if (movieSlug) {
-        // 3. parameter එක තිබ්බොත් https://veloxstream.cfd/movie?movie=351-minions-monsters විදිහට redirect කරනවා
-        window.location.href = baseSite + "?movie=" + movieSlug;
-    } else {
-        // 4. parameter එක නැත්නම් කෙලින්ම home page එකට යවනවා
+        window.location.href = "https://veloxstream.cfd/movie?movie=" + movieSlug;
+    } 
+    // 3. TV Series එකක් ආවොත්
+    else if (seriesSlug) {
+        window.location.href = "https://veloxstream.cfd/series-view?series=" + seriesSlug;
+    } 
+    // 4. Parameter එකක් මුකුත්ම නැත්නම් Home page එකට
+    else {
         window.location.href = "https://veloxstream.cfd";
     }
 </script>
