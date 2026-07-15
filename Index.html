@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+</head>
+<body>
+    <p>Please wait while we redirect you to the movie...</p>
+
+    <script>
+        // URL එකේ තියෙන movie parameter එක ගන්නවා
+        const urlParams = new URLSearchParams(window.location.search);
+        const movieSlug = urlParams.get('movie');
+
+        // ඔයාගේ මේන් සයිට් එකේ base URL එක
+        const baseSite = "https://veloxstream.to/movies/";
+
+        if (movieSlug) {
+            // Parameter එකක් තිබ්බොත් කෙලින්ම ඒ movie එකට redirect කරනවා
+            window.location.href = baseSite + movieSlug;
+        } else {
+            // Parameter එකක් නැත්නම් home page එකට යවනවා
+            window.location.href = "https://veloxstream.to";
+        }
+    </script>
+</body>
+</html>
